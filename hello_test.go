@@ -1,25 +1,18 @@
 package main
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
-//test hello function
-func TestHello(t *testing.T) {
+func Sum(x int, y int) int {
+	return x + y
+}
 
-	//test for empty argument
-	emptyResult := hello("")
-
-	if emptyResult != "Hello Dude!" {
-		t.Errorf("hello(\"\") failed, expected %v, got %v", "Hello Dude!", emptyResult)
-	} else {
-		t.Logf("hello(\"\") success, expected %v,got %v", "Hello Dude!", emptyResult)
+func TestSum(t *testing.T) {
+	total := Sum(5, 5)
+	if total != 10 {
+		t.Errorf("Sum was incorrect, got: %d, want: %d.", total, 10)
 	}
-
-	//test for valid argument
-	result := hello("Mike")
-
-	if result != "Hello Mike!" {
-		t.Errorf("hello(\"Mike\") failed, expected %v,got %v", "Hello Dude!", result)
-	} else {
-		t.Logf("hello(\"Mike\") success, expected %v,got %v", "Hello Dude!", result)
-	}
+	fmt.Println("Hello")
 }
